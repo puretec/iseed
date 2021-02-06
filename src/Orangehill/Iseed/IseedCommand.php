@@ -13,7 +13,7 @@ class IseedCommand extends Command
      *
      * @var string
      */
-    protected $name = 'xlinx-dev:iseed';
+    protected $name = 'db:iseed';
 
     /**
      * The console command description.
@@ -39,6 +39,10 @@ class IseedCommand extends Command
      */
     public function handle()
     {
+        if (app()->environment('production')) {
+            throw new \Exception('Cannot run this in production mode');
+        }
+
         return $this->fire();
     }
 
