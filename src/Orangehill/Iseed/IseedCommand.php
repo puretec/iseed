@@ -13,7 +13,7 @@ class IseedCommand extends Command
      *
      * @var string
      */
-    protected $name = 'db:iseed';
+    protected $name = 'xlinx-dev:iseed';
 
     /**
      * The console command description.
