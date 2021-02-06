@@ -61,7 +61,7 @@ class Iseed
      * @return bool
      * @throws Orangehill\Iseed\TableNotFoundException
      */
-    public function generateSeed($table, $prefix=null, $suffix=null, $database = null, $max = 0, $chunkSize = 0, $exclude = null, $prerunEvent = null, $postrunEvent = null, $dumpAuto = true, $indexed = true, $orderBy = null, $direction = 'ASC')
+    public function generateSeed($table, $prefix=null, $suffix=null, $database = null, $max = 0, $chunkSize = 0, $exclude = null, $prerunEvent = null, $postrunEvent = null, $dumpAuto = true, $indexed = false, $orderBy = null, $direction = 'ASC')
     {
         if (!$database) {
             $database = config('database.default');
@@ -222,7 +222,7 @@ class Iseed
      * @param  string   $postunEvent
      * @return string
      */
-    public function populateStub($class, $stub, $table, $data, $chunkSize = null, $prerunEvent = null, $postrunEvent = null, $indexed = true)
+    public function populateStub($class, $stub, $table, $data, $chunkSize = null, $prerunEvent = null, $postrunEvent = null, $indexed = false)
     {
         $chunkSize = $chunkSize ?: config('iseed::config.chunk_size');
 
@@ -232,7 +232,7 @@ class Iseed
             $this->addNewLines($inserts);
             $this->addIndent($inserts, 2);
             $inserts .= sprintf(
-                "\DB::table('%s')->insert(%s);",
+                "DB::table('%s')->insert(%s);",
                 $table,
                 $this->prettifyArray($chunk, $indexed)
             );
@@ -305,7 +305,7 @@ class Iseed
      * @param  array  $array
      * @return string
      */
-    protected function prettifyArray($array, $indexed = true)
+    protected function prettifyArray($array, $indexed = false)
     {
         $content = ($indexed)
             ? var_export($array, true)

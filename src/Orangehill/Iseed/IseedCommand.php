@@ -13,7 +13,7 @@ class IseedCommand extends Command
      *
      * @var string
      */
-    protected $name = 'iseed';
+    protected $name = 'xlinx-dev:iseed';
 
     /**
      * The console command description.
@@ -61,7 +61,7 @@ class IseedCommand extends Command
         $prerunEvents = explode(",", $this->option('prerun'));
         $postrunEvents = explode(",", $this->option('postrun'));
         $dumpAuto = intval($this->option('dumpauto'));
-        $indexed = !$this->option('noindex');
+        $indexed = $this->option('indexed');
         $orderBy = $this->option('orderby');
         $direction = $this->option('direction');
         $prefix = $this->option('classnameprefix');

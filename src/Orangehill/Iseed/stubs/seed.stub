@@ -15,14 +15,10 @@ class {{class}} extends Seeder
      */
     public function run()
     {
-        {{prerun_event}}
-        
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('{{table}}')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         
         {{insert_statements}}
-        
-        {{postrun_event}}
     }
 }
