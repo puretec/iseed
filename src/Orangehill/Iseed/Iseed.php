@@ -113,7 +113,7 @@ class Iseed
         }
 
         // Update the DatabaseSeeder.php file
-        return $this->updateDatabaseSeederRunMethod($className) !== false;
+        // return $this->updateDatabaseSeederRunMethod($className) !== false;
     }
 
     /**
