@@ -197,7 +197,7 @@ class Iseed
         foreach ($tableName as $tableNameExploded) {
             $tableString .= ucfirst($tableNameExploded);
         }
-        return ($prefix ? $prefix : '') . ucfirst($tableString) . 'Table' . ($suffix ? $suffix : '') . 'Seeder';
+        return ($prefix ? $prefix : '') . ucfirst($tableString) . ($suffix ? $suffix : '') . 'Seeder';
     }
 
     /**
