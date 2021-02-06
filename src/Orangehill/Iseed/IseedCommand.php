@@ -171,7 +171,7 @@ class IseedCommand extends Command
             array('prerun', null, InputOption::VALUE_OPTIONAL, 'prerun event name', null),
             array('postrun', null, InputOption::VALUE_OPTIONAL, 'postrun event name', null),
             array('dumpauto', null, InputOption::VALUE_OPTIONAL, 'run composer dump-autoload', true),
-            array('noindex', null, InputOption::VALUE_NONE, 'no indexing in the seed', null),
+            array('indexed', null, InputOption::VALUE_NONE, 'indexing in the seed', null),
             array('orderby', null, InputOption::VALUE_OPTIONAL, 'orderby desc by column', null),
             array('direction', null, InputOption::VALUE_OPTIONAL, 'orderby direction', null),
             array('classnameprefix', null, InputOption::VALUE_OPTIONAL, 'prefix for class and file name', null),
