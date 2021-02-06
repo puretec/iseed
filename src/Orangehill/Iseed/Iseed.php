@@ -5,6 +5,7 @@ namespace Orangehill\Iseed;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Str;
 
 class Iseed
 {
@@ -199,7 +200,7 @@ class Iseed
         foreach ($tableName as $tableNameExploded) {
             $tableString .= ucfirst($tableNameExploded);
         }
-        return ($prefix ? $prefix : '') . ucfirst($tableString) . ($suffix ? $suffix : '') . 'Seeder';
+        return ($prefix ? $prefix : '') . ucfirst(Str::singular($tableString)) . ($suffix ? $suffix : '') . 'Seeder';
     }
 
     /**
